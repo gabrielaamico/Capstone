@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Header from "./components/Header.js";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
 
       {/* Header with Navigation */}
+      <Header />
       <header>
         <nav>
           <ul>
@@ -42,12 +44,14 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero">
-        <h1>Little Lemon</h1>
-        <h2>Madrid</h2>
-        <p>...</p>
-        <button>Reserve a Table</button>
-      </section>
+      <main>
+        <section id="hero">
+          <h1>Little Lemon</h1>
+          <h2>Madrid</h2>
+          <p>...</p>
+          <button>Reserve a Table</button>
+        </section>
+      </main>
 
       {/* Highlights */}
       <section id="highlights">

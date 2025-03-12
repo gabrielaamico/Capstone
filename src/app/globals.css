@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,228 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+@import "tailwindcss";
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+/* Header & Footer - Flexbox */
+header,
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container img {
+  width: 120px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ff6600;
+}
+
+/* Hero Section - Center Content */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+  background: url("/hero-image.jpg") center/cover no-repeat;
+  color: white;
+  padding: 1rem;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.cta-button:hover {
+  background-color: #cc5200;
+}
+
+/* Highlights Section - CSS Grid */
+#highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+#highlights article {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#highlights h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Testimonials - Centered Layout */
+#testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+}
+
+#testimonials blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+#testimonials cite {
+  font-size: 1.1rem;
+  color: #777;
+}
+
+/* About Section */
+#about {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ----------------------------------- */
+/* 🚀 Responsive Media Queries Below */
+/* ----------------------------------- */
+
+/* 📱 Small screens: Mobile-first adjustments */
+@media (max-width: 768px) {
+  header,
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #highlights {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+
+  #testimonials blockquote {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+/* 💻 Medium screens: Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+
+  #highlights {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+}
+
+/* 🖥️ Large screens: Full layout */
+@media (min-width: 1025px) {
+  #highlights {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Three columns for larger screens */
+  }
+}
+
+/* Reusable Grid System */
+.grid-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

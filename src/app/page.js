@@ -1,6 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import Header from "./components/Header.js";
+import "./globals.css";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -20,8 +22,15 @@ export default function Home() {
       </Head>
 
       {/* Header with Navigation */}
-      <Header />
       <header>
+        <div className="logo-container">
+          <Image
+            src="/logo.png"
+            alt="Little Lemon Logo"
+            width={100}
+            height={50}
+          />
+        </div>
         <nav>
           <ul>
             <li>

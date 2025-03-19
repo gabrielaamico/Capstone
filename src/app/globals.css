@@ -123,8 +123,8 @@ nav ul li a:hover {
   text-align: center;
 }
 
-#highlights h2 {
-  text-align: center;
+#highlights h2 p h4 {
+  text-align: justify;
   margin-bottom: 1rem;
 }
 

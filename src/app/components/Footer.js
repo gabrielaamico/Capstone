@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div className="logo-container">
         <Image
-          src="/logo1.png"
+          src="/logo2.png"
           alt="Little Lemon Logo"
           width={100}
           height={50}

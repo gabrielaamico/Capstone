@@ -1,13 +1,16 @@
 import React from "react";
+import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section id="hero">
-      <h1>Welcome to [Restaurant Name]</h1>
-      <p>Experience the best dining with us</p>
+    <section id="hero" className="grid-layout">
+      <h1>Little Lemon</h1>
+      <h2>Madrid</h2>
+      <p>...</p>
       <a href="#highlights" className="cta-button">
-        View Specials
+        Reserve a table
       </a>
+      <Image src="/salad.jpg" alt="Greek Salad" width={250} height={200} />
     </section>
   );
 };

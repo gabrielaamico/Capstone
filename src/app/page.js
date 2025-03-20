@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Header from "./components/Header.js";
 import Highlights from "./components/Highlights.js";
 import Hero from "./components/Hero.js";
 import Testimonials from "./components/Testimonials.js";
@@ -23,7 +22,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, inital-scale=1.0" />
       </Head>
 
-      <Header />
       <Hero />
       <Highlights />
       <Testimonials />

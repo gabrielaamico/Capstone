@@ -1,33 +1,99 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react"; // Install lucide-react for icons
+
+const dishes = [
+  {
+    id: 1,
+    image: "/salad.jpg",
+    title: "Greek Salad",
+    price: "12.99$",
+    description: "Fresh Greek salad with olives and feta cheese.",
+  },
+  {
+    id: 2,
+    image: "/bruchetta.svg",
+    title: "Bruchetta",
+    price: "9.99$",
+    description: "Crispy bread with fresh tomatoes and basil.",
+  },
+  {
+    id: 3,
+    image: "/dessert.jpg",
+    title: "Lemon Dessert",
+    price: "7.99$",
+    description: "Delicious lemon-flavored dessert.",
+  },
+  {
+    id: 4,
+    image: "/dessert.jpg",
+    title: "Lemon Dessert",
+    price: "7.99$",
+    description: "Delicious lemon-flavored dessert.",
+  },
+  {
+    id: 5,
+    image: "/bruchetta.svg",
+    title: "Bruchetta",
+    price: "9.99$",
+    description: "Crispy bread with fresh tomatoes and basil.",
+  },
+];
 
 const Highlights = () => {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+  };
+
   return (
-    <section id="highlights" className="grid-layout">
-      <article>
-        <Image src="/salad.jpg" alt="Greek Salad" width={250} height={200} />
-        <h3>Greek Salad 12.99$</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at
-          metus porttitor urna tincidunt blandit vel.
-        </p>
-        <h4>Order a delivery</h4>
-      </article>
-      <article>
-        <Image src="/bruchetta.svg" alt="Bruchetta" width={250} height={200} />
-        <h3>Bruchetta</h3>
-        <p>Another tasty option.</p>
-      </article>
-      <article>
-        <Image
-          src="/dessert.jpg"
-          alt="Lemon Dessert"
-          width={200}
-          height={250}
-        />
-        <h3>Lemon Dessert</h3>
-        <p>Yummy food here.</p>
-      </article>
+    <section id="highlights" className="highlights-section">
+      {/* Title and Menu Button */}
+      <div className="highlights-header">
+        <h2>Specials</h2>
+        <button className="menu-button">Online Menu</button>
+      </div>
+
+      {/* Scrollable Container */}
+      <div className="scroll-container">
+        <button className="scroll-button left" onClick={scrollLeft}>
+          <ChevronLeft size={32} />
+        </button>
+
+        <div className="dishes-container" ref={scrollRef}>
+          {dishes.map((dish) => (
+            <article key={dish.id} className="dish-card">
+              <Image
+                src={dish.image}
+                alt={dish.title}
+                width={250}
+                height={100}
+                className="dish-image"
+              />
+              <div className="dish-info">
+                <h3>
+                  {dish.title} <span className="price">{dish.price}</span>
+                </h3>
+                <p>{dish.description}</p>
+                <a href="#" className="order-link">
+                  Order a delivery
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <button className="scroll-button right" onClick={scrollRight}>
+          <ChevronRight size={32} />
+        </button>
+      </div>
     </section>
   );
 };

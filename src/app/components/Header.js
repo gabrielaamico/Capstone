@@ -10,7 +10,7 @@ const Header = () => {
           src="/logo.png"
           alt="Little Lemon Logo"
           width={100}
-          height={50}
+          height={60}
         />
       </div>
       <Nav />

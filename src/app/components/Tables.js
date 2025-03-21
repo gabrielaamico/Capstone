@@ -13,7 +13,6 @@ const Tables = () => {
     <section id="tables" className="p-6">
       <h2 className="text-2xl font-bold mb-4 text-center">Choose Your Table</h2>
       <div className="grid grid-cols-3 gap-6">
-        {/* Table 1 */}
         <div className="table-option">
           <input
             type="radio"
@@ -34,7 +33,6 @@ const Tables = () => {
           </label>
         </div>
 
-        {/* Table 2 */}
         <div className="table-option">
           <input
             type="radio"
@@ -55,7 +53,6 @@ const Tables = () => {
           </label>
         </div>
 
-        {/* Table 3 */}
         <div className="table-option">
           <input
             type="radio"
@@ -76,7 +73,6 @@ const Tables = () => {
           </label>
         </div>
 
-        {/* Table 4 */}
         <div className="table-option">
           <input
             type="radio"
@@ -97,7 +93,6 @@ const Tables = () => {
           </label>
         </div>
 
-        {/* Table 5 */}
         <div className="table-option">
           <input
             type="radio"
@@ -118,7 +113,6 @@ const Tables = () => {
           </label>
         </div>
 
-        {/* Table 6 */}
         <div className="table-option">
           <input
             type="radio"

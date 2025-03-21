@@ -4,7 +4,6 @@ import Image from "next/image";
 const About = () => {
   return (
     <section id="about" className="about-section">
-      {/* Left Side: Text Content */}
       <div className="about-text">
         <h1>Little Lemon</h1>
         <h2>Madrid</h2>
@@ -18,7 +17,6 @@ const About = () => {
         </p>
       </div>
 
-      {/* Right Side: Overlapping Images */}
       <div className="about-images">
         <div className="image-container">
           <Image

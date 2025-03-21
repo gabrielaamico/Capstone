@@ -17,16 +17,13 @@ const PersonalDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here (e.g., API call)
     console.log("Form submitted:", formData);
   };
 
   return (
     <section id="personal-details" className="my-8 p-4">
-      {/* Section Title */}
       <h2 className="text-2xl font-bold mb-6 text-center">Personal Details</h2>
 
-      {/* Form */}
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
         <div className="mb-4">
           <label htmlFor="firstName" className="block text-sm font-medium">
@@ -88,7 +85,6 @@ const PersonalDetails = () => {
           />
         </div>
 
-        {/* Confirm Button */}
         <button type="submit" className="menu-button w-full">
           Confirm Reservation
         </button>

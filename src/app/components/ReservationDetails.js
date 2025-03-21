@@ -5,7 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const ReservationDetails = () => {
-  // Validation schema using Yup
   const validationSchema = Yup.object({
     date: Yup.string().required("Date is required"),
     time: Yup.string().required("Time is required"),
@@ -39,7 +38,6 @@ const ReservationDetails = () => {
         >
           {({ isValid }) => (
             <Form className="space-y-4">
-              {/* Date Field */}
               <div className="flex flex-col">
                 <label htmlFor="date" className="mb-2 font-semibold">
                   Date
@@ -48,7 +46,7 @@ const ReservationDetails = () => {
                   type="date"
                   id="date"
                   name="date"
-                  min={new Date().toISOString().split("T")[0]} // Disable past dates
+                  min={new Date().toISOString().split("T")[0]}
                   className="p-2 border rounded-lg"
                 />
                 <ErrorMessage
@@ -58,7 +56,6 @@ const ReservationDetails = () => {
                 />
               </div>
 
-              {/* Time Field */}
               <div className="flex flex-col">
                 <label htmlFor="time" className="mb-2 font-semibold">
                   Time
@@ -82,7 +79,6 @@ const ReservationDetails = () => {
                 />
               </div>
 
-              {/* Guests Field */}
               <div className="flex flex-col">
                 <label htmlFor="guests" className="mb-2 font-semibold">
                   Number of Guests
@@ -102,7 +98,6 @@ const ReservationDetails = () => {
                 />
               </div>
 
-              {/* Occasion Field */}
               <div className="flex flex-col">
                 <label htmlFor="occasion" className="mb-2 font-semibold">
                   Occasion
@@ -125,7 +120,6 @@ const ReservationDetails = () => {
                 />
               </div>
 
-              {/* Special Requests Field */}
               <div className="flex flex-col">
                 <label htmlFor="specialRequests" className="mb-2 font-semibold">
                   Special Requests
@@ -145,7 +139,6 @@ const ReservationDetails = () => {
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="bg-yellow-500 text-white p-3 rounded-lg w-full mt-4 disabled:bg-gray-400"
@@ -158,7 +151,6 @@ const ReservationDetails = () => {
         </Formik>
       </div>
 
-      {/* Image on the right */}
       <div className="flex-1">
         <img
           src="/hero.jpg"

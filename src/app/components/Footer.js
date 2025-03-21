@@ -5,7 +5,6 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* Logo */}
       <div className="footer-logo">
         <Image
           src="/logo1.png"
@@ -15,9 +14,7 @@ const Footer = () => {
         />
       </div>
 
-      {/* Footer Sections */}
       <div className="footer-sections">
-        {/* Navigation */}
         <div className="footer-column">
           <h4>Navigation</h4>
           <ul>
@@ -36,7 +33,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact */}
         <div className="footer-column">
           <h4>Contact</h4>
           <ul>
@@ -52,7 +48,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Socials */}
         <div className="footer-column">
           <h4>Socials</h4>
           <ul>
@@ -72,7 +67,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
       <p className="footer-copyright">
         &copy; 2025 Little Lemon. All rights reserved.
       </p>

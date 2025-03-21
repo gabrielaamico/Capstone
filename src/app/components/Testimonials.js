@@ -1,8 +1,8 @@
-"use client"; // Ensure this is at the top
+"use client";
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import { Star } from "lucide-react"; // Import Star icon
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -68,16 +68,13 @@ const Testimonials = () => {
       <h2 className="section-title">What Our Customers Say</h2>
 
       <div className="testimonials-container">
-        {/* Left Scroll Button */}
         <button onClick={scrollLeft} className="scroll-buttons lefts">
           &#8249;
         </button>
 
-        {/* Scrollable Reviews */}
         <div className="reviews-wrapper" ref={scrollRef}>
           {testimonials.map(({ id, name, review, image, rating }) => (
             <article key={id} className="testimonial">
-              {/* Star Rating */}
               <div className="stars">
                 {Array.from({ length: 5 }, (_, i) => (
                   <Star
@@ -88,7 +85,6 @@ const Testimonials = () => {
                 ))}
               </div>
 
-              {/* Customer Image + Name */}
               <div className="customer-info">
                 <Image
                   src={image}
@@ -100,13 +96,11 @@ const Testimonials = () => {
                 <h4 className="customer-name">{name}</h4>
               </div>
 
-              {/* Review Text */}
               <p className="review-text">"{review}"</p>
             </article>
           ))}
         </div>
 
-        {/* Right Scroll Button */}
         <button onClick={scrollRight} className="scroll-buttons rights">
           &#8250;
         </button>

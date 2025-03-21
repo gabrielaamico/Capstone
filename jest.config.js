@@ -1,6 +1,6 @@
 module.exports = {
-  testEnvironment: "jsdom", // Ensures Jest mimics a browser environment
+  testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(js|jsx)$": "babel-jest", // Ensures JSX and JS are transpiled correctly
+    "^.+\\.(js|jsx)$": "babel-jest",
   },
 };

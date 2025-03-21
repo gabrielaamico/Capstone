@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Install lucide-react for icons
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const dishes = [
   {
@@ -55,13 +55,11 @@ const Highlights = () => {
 
   return (
     <section id="highlights" className="highlights-section">
-      {/* Title and Menu Button */}
       <div className="highlights-header">
         <h2>Specials</h2>
         <button className="menu-button">Online Menu</button>
       </div>
 
-      {/* Scrollable Container */}
       <div className="scroll-container">
         <button className="scroll-button left" onClick={scrollLeft}>
           <ChevronLeft size={32} />

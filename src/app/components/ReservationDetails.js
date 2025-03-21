@@ -1,124 +1,161 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const ReservationDetails = () => {
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [guests, setGuests] = useState("");
-  const [occasion, setOccasion] = useState("");
-  const [specialRequests, setSpecialRequests] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log({ date, time, guests, occasion, specialRequests });
-  };
+  // Validation schema using Yup
+  const validationSchema = Yup.object({
+    date: Yup.string().required("Date is required"),
+    time: Yup.string().required("Time is required"),
+    guests: Yup.number()
+      .min(1, "At least 1 guest is required")
+      .max(10, "Maximum 10 guests allowed")
+      .required("Guest count is required"),
+    occasion: Yup.string().required("Please select an occasion"),
+    specialRequests: Yup.string().max(300, "Maximum 300 characters allowed"),
+  });
 
   return (
     <section id="reservation-details" className="flex p-6">
       <div className="flex-1 mr-6">
         <h2 className="text-2xl font-bold mb-4">Reservation Details</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Date Field */}
-          <div className="flex flex-col">
-            <label htmlFor="date" className="mb-2 font-semibold">
-              Date
-            </label>
-            <input
-              type="date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="p-2 border rounded-lg"
-            />
-          </div>
 
-          {/* Time Field */}
-          <div className="flex flex-col">
-            <label htmlFor="time" className="mb-2 font-semibold">
-              Time
-            </label>
-            <select
-              id="time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-              className="p-2 border rounded-lg"
-            >
-              <option value="">Select a time</option>
-              <option value="12:00">12:00 PM</option>
-              <option value="12:30">12:30 PM</option>
-              <option value="1:00">1:00 PM</option>
-              <option value="1:30">1:30 PM</option>
-              {/* Add more time options as needed */}
-            </select>
-          </div>
+        <Formik
+          initialValues={{
+            date: "",
+            time: "",
+            guests: "",
+            occasion: "",
+            specialRequests: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values, { resetForm }) => {
+            console.log("Form submitted:", values);
+            alert("Reservation successful!");
+            resetForm();
+          }}
+        >
+          {({ isValid }) => (
+            <Form className="space-y-4">
+              {/* Date Field */}
+              <div className="flex flex-col">
+                <label htmlFor="date" className="mb-2 font-semibold">
+                  Date
+                </label>
+                <Field
+                  type="date"
+                  id="date"
+                  name="date"
+                  min={new Date().toISOString().split("T")[0]} // Disable past dates
+                  className="p-2 border rounded-lg"
+                />
+                <ErrorMessage
+                  name="date"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+              </div>
 
-          {/* Guests Field */}
-          <div className="flex flex-col">
-            <label htmlFor="guests" className="mb-2 font-semibold">
-              Number of Guests
-            </label>
-            <select
-              id="guests"
-              value={guests}
-              onChange={(e) => setGuests(e.target.value)}
-              className="p-2 border rounded-lg"
-            >
-              <option value="">Select number of guests</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
+              {/* Time Field */}
+              <div className="flex flex-col">
+                <label htmlFor="time" className="mb-2 font-semibold">
+                  Time
+                </label>
+                <Field
+                  as="select"
+                  id="time"
+                  name="time"
+                  className="p-2 border rounded-lg"
+                >
+                  <option value="">Select a time</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="12:30">12:30 PM</option>
+                  <option value="1:00">1:00 PM</option>
+                  <option value="1:30">1:30 PM</option>
+                </Field>
+                <ErrorMessage
+                  name="time"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+              </div>
 
-          {/* Occasion Field */}
-          <div className="flex flex-col">
-            <label htmlFor="occasion" className="mb-2 font-semibold">
-              Occasion
-            </label>
-            <select
-              id="occasion"
-              value={occasion}
-              onChange={(e) => setOccasion(e.target.value)}
-              className="p-2 border rounded-lg"
-            >
-              <option value="">Select an occasion</option>
-              <option value="anniversary">Anniversary</option>
-              <option value="engagement">Engagement</option>
-              <option value="birthday">Birthday</option>
-            </select>
-          </div>
+              {/* Guests Field */}
+              <div className="flex flex-col">
+                <label htmlFor="guests" className="mb-2 font-semibold">
+                  Number of Guests
+                </label>
+                <Field
+                  type="number"
+                  id="guests"
+                  name="guests"
+                  min="1"
+                  max="10"
+                  className="p-2 border rounded-lg"
+                />
+                <ErrorMessage
+                  name="guests"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+              </div>
 
-          {/* Special Requests Field */}
-          <div className="flex flex-col">
-            <label htmlFor="specialRequests" className="mb-2 font-semibold">
-              Special Requests
-            </label>
-            <textarea
-              id="specialRequests"
-              value={specialRequests}
-              onChange={(e) => setSpecialRequests(e.target.value)}
-              className="p-2 border rounded-lg"
-              rows="4"
-              placeholder="Enter any special requests..."
-            />
-          </div>
+              {/* Occasion Field */}
+              <div className="flex flex-col">
+                <label htmlFor="occasion" className="mb-2 font-semibold">
+                  Occasion
+                </label>
+                <Field
+                  as="select"
+                  id="occasion"
+                  name="occasion"
+                  className="p-2 border rounded-lg"
+                >
+                  <option value="">Select an occasion</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="engagement">Engagement</option>
+                  <option value="birthday">Birthday</option>
+                </Field>
+                <ErrorMessage
+                  name="occasion"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+              </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="bg-yellow-500 text-white p-3 rounded-lg w-full mt-4"
-          >
-            Find a Table
-          </button>
-        </form>
+              {/* Special Requests Field */}
+              <div className="flex flex-col">
+                <label htmlFor="specialRequests" className="mb-2 font-semibold">
+                  Special Requests
+                </label>
+                <Field
+                  as="textarea"
+                  id="specialRequests"
+                  name="specialRequests"
+                  rows="4"
+                  className="p-2 border rounded-lg"
+                  placeholder="Enter any special requests..."
+                />
+                <ErrorMessage
+                  name="specialRequests"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="bg-yellow-500 text-white p-3 rounded-lg w-full mt-4 disabled:bg-gray-400"
+                disabled={!isValid}
+              >
+                Find a Table
+              </button>
+            </Form>
+          )}
+        </Formik>
       </div>
 
       {/* Image on the right */}

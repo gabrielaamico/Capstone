@@ -139,6 +139,7 @@ body {
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
   margin-top: 55px;
   display: inline-block;
+  text-decoration: none;
 }
 
 .cta-button:hover {
@@ -264,6 +265,7 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none; /* Hide scrollbar */
+  padding: 1rem;
 }
 
 .dishes-container::-webkit-scrollbar {
@@ -272,6 +274,10 @@ body {
 
 /* Dish Card */
 .dish-card {
+  flex-shrink: 0; /* Prevent shrinking */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-width: 300px;
   background: white;
   padding: 1rem;
@@ -281,8 +287,15 @@ body {
   transition: 0.3s;
 }
 
+.dish-card:hover {
+  transform: translateY(-5px);
+}
+
 /* Image */
 .dish-image {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -315,4 +328,287 @@ body {
 
 .order-link:hover {
   text-decoration: underline;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: "Markazi Text", serif;
+}
+
+/* Testimonials Wrapper */
+.testimonials-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+.reviews-wrapper::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+/* Scrollable Reviews */
+.reviews-wrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  width: 80%;
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* Individual Testimonial */
+.testimonial {
+  flex: 0 0 250px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Star Rating */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.star {
+  color: #ddd;
+}
+
+.star.filled {
+  color: gold;
+}
+
+/* Customer Info */
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.customer-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.customer-name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Review Text */
+.review-text {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Scroll Buttons */
+/* .scroll-button {
+  background-color: #495e57;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+  background-color: #333;
+}
+
+.scroll-button.left {
+  margin-right: 1rem;
+}
+
+.scroll-button.right {
+  margin-left: 1rem;
+} */
+
+.scroll-buttons {
+  border: none;
+  background: none; /* Removes any background */
+  color: black; /* Makes arrows black */
+  font-size: 2rem; /* Adjust size */
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensures it's above the reviews */
+}
+
+.lefts {
+  left: -30px; /* Moves closer to reviews */
+}
+
+.rights {
+  right: -30px; /* Moves closer to reviews */
+}
+
+.scroll-buttons:hover {
+  color: gray; /* Optional hover effect */
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  justify-content: center;
+  padding: 3rem;
+  gap: 2rem;
+  background-color: #f4f4f4;
+}
+
+.about-text {
+  flex: 1; /* Takes up available space */
+  max-width: 40%; /* Prevents text from stretching too much */
+  color: black;
+}
+
+.about-text h1 {
+  font-family: "Markazi Text", serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #f4ce14;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  font-weight: 500;
+  color: #000;
+}
+
+.about-text p {
+  font-weight: 450;
+}
+
+/* Image Container */
+.about-images {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative; /* Allows absolute positioning for images */
+}
+
+.image-container {
+  width: 450px; /* Adjust based on your layout */
+  height: 320px;
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* First Image (Top Layer) */
+.image-1 {
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* Second Image (Behind & Slightly Shifted) */
+.image-2 {
+  top: 40px;
+  left: 50px;
+  z-index: 1;
+  opacity: 0.9; /* Slight transparency for better effect */
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background-color: #fbdabb;
+  color: #495e57;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.footer-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-sections {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.1rem;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #495e57;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #f4d35e; /* Highlight color */
+}
+
+.footer-copyright {
+  text-align: center;
+  width: 100%;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.2); */
 }

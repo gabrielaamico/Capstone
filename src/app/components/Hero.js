@@ -15,7 +15,7 @@ const Hero = () => {
           guaranteed to make you feel like you are on a summer vacation in
           beautiful Italy.
         </p>
-        <a href="#highlights" className="cta-button">
+        <a href="/reservations" className="cta-button">
           Reserve a table
         </a>
       </div>

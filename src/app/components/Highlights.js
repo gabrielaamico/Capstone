@@ -10,14 +10,14 @@ const dishes = [
     image: "/salad.jpg",
     title: "Greek Salad",
     price: "12.99$",
-    description: "Fresh Greek salad with olives and feta cheese.",
+    description: "Fresh Greek salad with olives and feta.",
   },
   {
     id: 2,
     image: "/bruchetta.svg",
     title: "Bruchetta",
     price: "9.99$",
-    description: "Crispy bread with fresh tomatoes and basil.",
+    description: "Bread with fresh tomatoes and basil.",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const dishes = [
     image: "/bruchetta.svg",
     title: "Bruchetta",
     price: "9.99$",
-    description: "Crispy bread with fresh tomatoes and basil.",
+    description: "Bread with fresh tomatoes and basil.",
   },
 ];
 
